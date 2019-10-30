@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import axios from 'axios';
+import Header from './components/Header';
+import SearchUser from './components/SearchUser';
+import InfoCard from './components/InfoCard';
+import About from './components/pages/About';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+  state = {
+    userName: 'DeveloperRaj',
+    name: '',
+    avatarURL: '',
+    profileURL: '',
+    repos: 0,
+    followers: 0,
+    followings: 0
+  }
+
+  userNameMet = (username) => {
+    this.setState({ userName: username });
+  }
+
+  getData = () => {
+    let username = this.state.userName;
+    axios.get(`https://api.github.com/users/${username}`)
+      .then(res => this.setState({ 
+        name: res.data.login,
+        avatarURL: res.data.avatar_url,
+        profileURL: res.data.html_url,
+        repos: res.data.public_repos,
+        followers: res.data.followers,
+        followings: res.data.following
+       }));
+  }
+
+  render(){
+    this.getData();
+    return (
+        <Router>
+        <div>
+          <Header />
+          <Route exact path="/" render={props => (
+            <React.Fragment>
+              <SearchUser userNameMet={this.userNameMet} submitMet={this.getData} />
+              <InfoCard userName={this.state.userName} data={this.state} />
+            </React.Fragment>
+          )} />
+          <Route path="/about" component={About} />
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App;
