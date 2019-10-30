@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "23649957b061b72dbc0f15fac254c895",
+    "revision": "efaeae97aaa90a61e3a1c6d122371dbf",
     "url": "/GitHub-ProfileCard-React/index.html"
   },
   {
-    "revision": "71e2198c4778de5982f0",
+    "revision": "2902a134bf91a4127bf6",
     "url": "/GitHub-ProfileCard-React/static/css/main.3ea75811.chunk.css"
   },
   {
-    "revision": "e9989acee2c5c09b887f",
-    "url": "/GitHub-ProfileCard-React/static/js/2.b738a678.chunk.js"
+    "revision": "fe5098abd868d8b910f6",
+    "url": "/GitHub-ProfileCard-React/static/js/2.eeb060ff.chunk.js"
   },
   {
-    "revision": "71e2198c4778de5982f0",
-    "url": "/GitHub-ProfileCard-React/static/js/main.26fa52c6.chunk.js"
+    "revision": "2902a134bf91a4127bf6",
+    "url": "/GitHub-ProfileCard-React/static/js/main.da8bdf65.chunk.js"
   },
   {
     "revision": "06cbd6a535257885c446",
